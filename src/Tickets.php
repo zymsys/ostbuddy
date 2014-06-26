@@ -6,7 +6,7 @@ class Tickets
     private $db;
     private $table_prefix;
 
-    private $baseSQL = "select ticket_id, ost_ticket.number, ost_form_entry_values.value
+    private $baseSQL = "select ticket_id as id, ost_ticket.number, ost_form_entry_values.value as title, ost_ticket.status
             from ost_ticket
               left join ost_form_entry on ost_form_entry.object_id = ticket_id
               left join ost_form_entry_values on ost_form_entry.id = entry_id

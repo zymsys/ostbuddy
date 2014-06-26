@@ -29,4 +29,5 @@ $app->get('/api/tickets', function() use ($app, $container) {
         'tickets' => $tickets->get(),
     ));
 });
+
 $app->run();
