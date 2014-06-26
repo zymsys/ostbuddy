@@ -16,6 +16,9 @@ $app = new \Slim\Slim();
 $app->view(new \JsonApiView());
 $app->add(new \JsonApiMiddleware());
 
+//Allow cross site requests from anybody, any time.
+$app->response()->header('Access-Control-Allow-Origin', '*');
+
 $app->get('/api/tickets', function() use ($app, $container) {
     $tickets = new Tickets($container['db'], $container['config']['TABLE_PREFIX']);
     $ticketList = $app->request->get('tickets');
